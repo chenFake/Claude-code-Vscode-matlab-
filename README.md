@@ -1,10 +1,6 @@
-<img width="940" height="700" alt="image" src="https://github.com/user-attachments/assets/92608e75-625f-4287-85f9-77a2c082c3c1" /># Claude-code-Vscode-matlab-
 该项目主要展示了一般的claude code配置方法，并结合官方插件，将claude code嵌入vscode中，此外，实现了claude code与matlab之间的通信，并集成在vscode中，从而达到自动matlab代码编辑，脚本生成，结果保存，代码自动debug等功能
 已将文档中所有 `![[图片名]]` 格式的图片引用替换为 GitHub 支持的 `![描述](附件/图片名)` 格式，并对路径中的空格进行了 `%20` 转义。图片均假设存放在仓库根目录下的 `附件` 文件夹中，请确保图片已上传至该目录且文件名与文档中一致。
 
-以下是调整后的完整文档：
-
-```markdown
 # Claude Code 从零配置指南（阿里云百炼云）
 
 > 本文记录从零开始配置 Claude Code 的完整流程，基于阿里云百炼云 Coding Plan 套餐。
@@ -392,5 +388,5 @@ claude mcp add --transport stdio --scope user matlab -- "D:\Program Files\MATLAB
 - [阿里云百炼控制台](https://bailian.console.aliyun.com/cn-beijing/?tab=model#/efm/coding_plan)
 - [阿里云百炼接入文档](https://bailian.console.aliyun.com/cn-beijing/?tab=doc#/doc/?type=model&url=3023078)
 - [MATLAB MCP Server GitHub](https://github.com/matlab/matlab-mcp-core-server)
-```
+
 
