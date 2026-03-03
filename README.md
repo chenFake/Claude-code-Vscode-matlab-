@@ -1,5 +1,10 @@
-# Claude-code-Vscode-matlab-
+<img width="940" height="700" alt="image" src="https://github.com/user-attachments/assets/92608e75-625f-4287-85f9-77a2c082c3c1" /># Claude-code-Vscode-matlab-
 该项目主要展示了一般的claude code配置方法，并结合官方插件，将claude code嵌入vscode中，此外，实现了claude code与matlab之间的通信，并集成在vscode中，从而达到自动matlab代码编辑，脚本生成，结果保存，代码自动debug等功能
+已将文档中所有 `![[图片名]]` 格式的图片引用替换为 GitHub 支持的 `![描述](附件/图片名)` 格式，并对路径中的空格进行了 `%20` 转义。图片均假设存放在仓库根目录下的 `附件` 文件夹中，请确保图片已上传至该目录且文件名与文档中一致。
+
+以下是调整后的完整文档：
+
+```markdown
 # Claude Code 从零配置指南（阿里云百炼云）
 
 > 本文记录从零开始配置 Claude Code 的完整流程，基于阿里云百炼云 Coding Plan 套餐。
@@ -12,7 +17,7 @@
 2. [安装 Node.js](#安装-nodejs)
 3. [安装 Claude Code CLI](#安装-claude-code-cli)
 4. [配置 API](#配置-api)
-5. [配置 VS Code 插件](#配置-vscode-插件)
+5. [配置 VS Code 插件](#配置-vs-code-插件)
 6. [接入 MATLAB](#接入-matlab)
 7. [完成配置](#完成配置)
 8. [参考资料](#参考资料)
@@ -32,11 +37,11 @@
 
 1. 访问 [Node.js 官网](https://nodejs.org/) 下载 Node.js
 
-   ![[Pasted image 20260228022136.png]]
+   ![Pasted image 20260228022136.png](附件/Pasted%20image%2020260228022136.png)
 
 2. 运行安装程序，一路默认选项完成安装
 
-   ![[Pasted image 20260228022224.png]]
+   ![Pasted image 20260228022224.png](附件/Pasted%20image%2020260228022224.png)
 
 3. 安装完成后可选择**不安装** "Install necessary tools" 选项，不影响后续使用
 
@@ -77,7 +82,7 @@ npm install -g @anthropic-ai/claude-code
 
 2. 如遇到权限问题，重新打开 PowerShell，**用管理员模式运行**
 
-   ![[Pasted image 20260228023136.png]]
+   ![Pasted image 20260228023136.png](附件/Pasted%20image%2020260228023136.png)
 
 3. 输入以下命令，检查输出：
 
@@ -92,17 +97,17 @@ npm --version
 
 5. 在管理员模式下运行，安装 claude
 
-   ![[Pasted image 20260228023747.png]]
+   ![Pasted image 20260228023747.png](附件/Pasted%20image%2020260228023747.png)
 
 6. 如遇到以下问题，重启 PowerShell
 
-   ![[Pasted image 20260228023801.png]]
+   ![Pasted image 20260228023801.png](附件/Pasted%20image%2020260228023801.png)
 
    > 另外也有可能是安装包失误的问题，重新检查 npm 命令是否正确
 
 7. 运行 `claude`，如显示以下内容，安装成功，进入下一步
 
-   ![[Pasted image 20260228024523.png]]
+   ![Pasted image 20260228024523.png](附件/Pasted%20image%2020260228024523.png)
 
 ---
 
@@ -136,17 +141,17 @@ echo %ANTHROPIC_BASE_URL%
 echo %ANTHROPIC_MODEL%
 ```
 
-   ![[Pasted image 20260228025321.png]]
+   ![Pasted image 20260228025321.png](附件/Pasted%20image%2020260228025321.png)
 
 3. 编辑或新增 `C:\Users\%USERNAME%\.claude.json` 文件，将 `hasCompletedOnboarding` 字段的值设置为 `true`，并保存文件。
 
 4. 重新运行 claude
 
-   ![[Pasted image 20260228025916.png]]
+   ![Pasted image 20260228025916.png](附件/Pasted%20image%2020260228025916.png)
 
 5. 选择 yes，继续往下，显示运行成功
 
-   ![[Pasted image 20260228030019.png]]
+   ![Pasted image 20260228030019.png](附件/Pasted%20image%2020260228030019.png)
 
 这时可以提问，运行。
 
@@ -190,11 +195,11 @@ echo %ANTHROPIC_MODEL%
 
 在 VS Code Extension 中，搜索 claude code，下载插件
 
-![[Pasted image 20260228030324.png]]
+![Pasted image 20260228030324.png](附件/Pasted%20image%2020260228030324.png)
 
 > ⚠️ **注意**：最近的插件在安装时可能存在兼容性错误，建议使用回退版本的插件。本次测试中，**2.1.56 版本**是可用的。
 
-![[Pasted image 20260228031446.png]]
+![Pasted image 20260228031446.png](附件/Pasted%20image%2020260228031446.png)
 
 ### 5.2 插件配置
 
@@ -206,7 +211,7 @@ echo %ANTHROPIC_MODEL%
 
 此时即避免了登录
 
-![[Pasted image 20260228031615.png]]
+![Pasted image 20260228031615.png](附件/Pasted%20image%2020260228031615.png)
 
 2. 在 setting 文件中添加所使用的模型名称：
 
@@ -216,13 +221,13 @@ echo %ANTHROPIC_MODEL%
 
 此时即可在 UI 中与模型问答
 
-![[Pasted image 20260228032222.png]]
+![Pasted image 20260228032222.png](附件/Pasted%20image%2020260228032222.png)
 
 ### 5.3 全局记忆配置
 
 在 `~/.claude` 文件夹下写 `CLAUDE.md` 文件作为全局记忆，在里面添加"用中文回答用户问题"，可避免 claude 反复用英文回答。
 
-![[Pasted image 20260303002106.png]]
+![Pasted image 20260303002106.png](附件/Pasted%20image%2020260303002106.png)
 
 ---
 
@@ -232,12 +237,12 @@ echo %ANTHROPIC_MODEL%
 
 1. Win+S 搜索"编辑环境变量"
 
-   ![[Pasted image 20260302235837.png]]
-   ![[Pasted image 20260303000013.png]]
+   ![Pasted image 20260302235837.png](附件/Pasted%20image%2020260302235837.png)
+   ![Pasted image 20260303000013.png](附件/Pasted%20image%2020260303000013.png)
 
 2. 添加环境变量
 
-   ![[Pasted image 20260303000203.png]]
+   ![Pasted image 20260303000203.png](附件/Pasted%20image%2020260303000203.png)
 
 3. 点击新建，把 matlab 的位置添加到系统变量 → Path 中
 
@@ -245,23 +250,23 @@ echo %ANTHROPIC_MODEL%
 
    右键 matlab 程序，点击打开文件所在的位置
 
-   ![[Pasted image 20260303000336.png]]
+   ![Pasted image 20260303000336.png](附件/Pasted%20image%2020260303000336.png)
 
 4. 复制位置到新建环境变量
 
-   ![[Pasted image 20260303000510.png]]
+   ![Pasted image 20260303000510.png](附件/Pasted%20image%2020260303000510.png)
 
 5. 打开 CMD（快捷键 Win+R，输入 cmd，回车）
 
-   ![[Pasted image 20260303000624.png]]
+   ![Pasted image 20260303000624.png](附件/Pasted%20image%2020260303000624.png)
 
 6. 在命令行窗口输入 `matlab`，回车
 
-   ![[Pasted image 20260303000658.png]]
+   ![Pasted image 20260303000658.png](附件/Pasted%20image%2020260303000658.png)
 
 7. 若无报错，并且等待后 matlab 启动，则 matlab 已被添加至环境变量中
 
-   ![[Pasted image 20260303000759.png]]
+   ![Pasted image 20260303000759.png](附件/Pasted%20image%2020260303000759.png)
 
 ---
 
@@ -269,19 +274,19 @@ echo %ANTHROPIC_MODEL%
 
 1. 进入 [MATLAB MCP Server GitHub](https://github.com/matlab/matlab-mcp-core-server)
 
-   ![[Pasted image 20260303000858.png]]
+   ![Pasted image 20260303000858.png](附件/Pasted%20image%2020260303000858.png)
 
 2. 下载服务器的二进制文件（.exe 应用），记住文件所在位置
 
-   ![[Pasted image 20260303004433.png]]
+   ![Pasted image 20260303004433.png](附件/Pasted%20image%2020260303004433.png)
 
 3. 点击运行，显示已连接到 matlab
 
-   ![[Pasted image 20260303004510.png]]
+   ![Pasted image 20260303004510.png](附件/Pasted%20image%2020260303004510.png)
 
 4. 这里可以将程序文件移到 matlab/bin 路径下，方便管理和查找
 
-   ![[Pasted image 20260303004620.png]]
+   ![Pasted image 20260303004620.png](附件/Pasted%20image%2020260303004620.png)
 
    记下文件地址，例如：
    ```
@@ -309,9 +314,9 @@ claude mcp add --transport stdio --scope user matlab -- "D:\Program Files\MATLAB
 
 此时，可通过对话调用 matlab
 
-![[Pasted image 20260303010158.png]]
-![[Pasted image 20260303010324.png]]
-![[Pasted image 20260303010508.png]]
+![Pasted image 20260303010158.png](附件/Pasted%20image%2020260303010158.png)
+![Pasted image 20260303010324.png](附件/Pasted%20image%2020260303010324.png)
+![Pasted image 20260303010508.png](附件/Pasted%20image%2020260303010508.png)
 
 ---
 
@@ -321,7 +326,7 @@ claude mcp add --transport stdio --scope user matlab -- "D:\Program Files\MATLAB
 
 注意改 terminal 为 CMD，Ctrl+Shift+P，搜索 `Terminal: Select Default Profile`
 
-![[Pasted image 20260303005645.png]]
+![Pasted image 20260303005645.png](附件/Pasted%20image%2020260303005645.png)
 
 **settings.json 配置：**
 
@@ -362,7 +367,7 @@ claude mcp add --transport stdio --scope user matlab -- "D:\Program Files\MATLAB
 
 保存文件，在 vscode 中运行
 
-![[Pasted image 20260303010726.png]]
+![Pasted image 20260303010726.png](附件/Pasted%20image%2020260303010726.png)
 
 此时可以看到，vscode 的官方插件的 UI 中也保存了 matlab 的 mcp，此时可以在 UI 界面中与 claude code 对话。
 
@@ -378,7 +383,7 @@ claude mcp add --transport stdio --scope user matlab -- "D:\Program Files\MATLAB
 
 ### VS Code + Claude + MATLAB 完整演示
 
-![[20260302-1738-31.7175036.mp4]]
+![20260302-1738-31.7175036.mp4](附件/20260302-1738-31.7175036.mp4)
 
 ---
 
@@ -387,3 +392,5 @@ claude mcp add --transport stdio --scope user matlab -- "D:\Program Files\MATLAB
 - [阿里云百炼控制台](https://bailian.console.aliyun.com/cn-beijing/?tab=model#/efm/coding_plan)
 - [阿里云百炼接入文档](https://bailian.console.aliyun.com/cn-beijing/?tab=doc#/doc/?type=model&url=3023078)
 - [MATLAB MCP Server GitHub](https://github.com/matlab/matlab-mcp-core-server)
+```
+
