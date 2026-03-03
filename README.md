@@ -378,7 +378,7 @@ claude mcp add --transport stdio --scope user matlab -- "D:\Program Files\MATLAB
 
 ### VS Code + Claude + MATLAB 完整演示
 
-![20260302-1738-31.7175036.mp4](附件/20260302-1738-31.7175036.mp4)
+[![视频demo](https://yc.tuchung.cc/view?code=b7afead1)
 
 ---
 
