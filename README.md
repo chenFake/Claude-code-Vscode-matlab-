@@ -1,8 +1,8 @@
 该项目主要展示了一般的claude code配置方法，并结合官方插件，将claude code嵌入vscode中，此外，实现了claude code与matlab之间的通信，并集成在vscode中，从而达到自动matlab代码编辑，脚本生成，结果保存，代码自动debug等功能
 
-# Claude Code 从零配置指南（阿里云百炼云）
+# Claude Code 从零配置指南
 
-> 本文记录从零开始配置 Claude Code 的完整流程，基于阿里云百炼云 Coding Plan 套餐。
+> 本文记录从零开始配置 Claude Code 的完整流程，基于deepseek api。
 
 ---
 
@@ -108,7 +108,10 @@ npm --version
 
 ## 四、配置 API
 
-本次使用的是阿里云的百炼云 Coding Plan，因此主要参考其官方文档，其他产品可参考 API 供应商的官方文档。
+新版改：由于阿里云调整了coding plan套餐，该套餐于2026年4月中旬后停止服务，无法续费，因此本版本中，使用了deepseek的api，本次的参考内容如下
+[接入 Coding Agents | DeepSeek API Docs](https://api-docs.deepseek.com/zh-cn/guides/coding_agents)
+**新版仅需要调整配置，其他内容保持不变**
+以及，如果调整了本部分API，claude插件中的模型设置也需要调整
 
 **参考资料：**
 - [阿里云百炼控制台](https://bailian.console.aliyun.com/cn-beijing/?tab=model#/efm/coding_plan)
@@ -124,8 +127,16 @@ npm --version
 
 ```powershell
 setx ANTHROPIC_AUTH_TOKEN "YOUR_API_KEY"
-setx ANTHROPIC_BASE_URL "https://coding.dashscope.aliyuncs.com/apps/anthropic"
-setx ANTHROPIC_MODEL "qwen3.5-plus"
+setx ANTHROPIC_BASE_URL "https://api.deepseek.com/anthropic"
+setx ANTHROPIC_MODEL "deepseek-v4-pro[1m]"
+'''以下内容可选'''
+setx ANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro  
+setx ANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro  
+setx ANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash  
+setx CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-pro  
+setx CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1  
+setx CLAUDE_CODE_DISABLE_NONSTREAMING_FALLBACK=1  
+setx CLAUDE_CODE_EFFORT_LEVEL=max
 ```
 
 2. 打开一个新的 CMD 窗口，运行以下命令，检查环境变量是否生效：
@@ -164,12 +175,29 @@ echo %ANTHROPIC_MODEL%
 
 ```json
 {
-    "env": {
-        "ANTHROPIC_AUTH_TOKEN": "YOUR_API_KEY",
-        "ANTHROPIC_BASE_URL": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
-        "ANTHROPIC_MODEL": "qwen3.5-plus"
-    }
+  "env": {
+
+    "ANTHROPIC_AUTH_TOKEN": "sk-sp-e7b95d13484c4108addd360b5be72347",
+
+    "ANTHROPIC_BASE_URL":
+
+    "https://api.deepseek.com/anthropic",
+
+        "ANTHROPIC_MODEL": "deepseek-v4-pro[1m]",
+
+    "ANTHROPIC_DEFAULT_OPUS_MODEL":"deepseek-v4-pro",
+
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek-v4-pro",
+
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL":"deepseek-v4-flash",
+
+    "CLAUDE_CODE_SUBAGENT_MODEL":"deepseek-v4-pro",
+
+    "CLAUDE_CODE_EFFORT_LEVEL":"max"  
+
+  }
 }
+
 ```
 
 3. 编辑或新增 `C:\Users\您的用户名\.claude.json` 文件，将 `hasCompletedOnboarding` 字段的值设置为 `true`，并保存文件。
@@ -211,7 +239,7 @@ echo %ANTHROPIC_MODEL%
 2. 在 setting 文件中添加所使用的模型名称：
 
 ```json
-"claudeCode.selectedModel": "qwen3.5-plus"
+"claudeCode.selectedModel": "deepseek-v4-pro"
 ```
 
 此时即可在 UI 中与模型问答
@@ -384,8 +412,7 @@ claude mcp add --transport stdio --scope user matlab -- "D:\Program Files\MATLAB
 
 ## 参考资料
 
-- [阿里云百炼控制台](https://bailian.console.aliyun.com/cn-beijing/?tab=model#/efm/coding_plan)
-- [阿里云百炼接入文档](https://bailian.console.aliyun.com/cn-beijing/?tab=doc#/doc/?type=model&url=3023078)
+- [接入 Coding Agents | DeepSeek API Docs](https://api-docs.deepseek.com/zh-cn/guides/coding_agents)
 - [MATLAB MCP Server GitHub](https://github.com/matlab/matlab-mcp-core-server)
 
 
